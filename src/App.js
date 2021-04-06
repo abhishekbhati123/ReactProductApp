@@ -1,24 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
-
-function App() {
+import React,{useState} from 'react';
+import Navbar from  './Components/Layout/Navbar';
+import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
+import HotDishes from './Components/Pages/Hotdishes';
+import Soup from './Components/Pages/Soup';
+import ColdDishes from './Components/Pages/ColdDishes';
+import Grill from './Components/Pages/Grill';
+import Appetizer from './Components/Pages/Appetizer';
+import Dessert from './Components/Pages/Dessert';
+import 'bootstrap/dist/css/bootstrap.min.css';
+const App=()=> {
+ 
   return (
+    
+    <Router>
+     
+    
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Navbar/>
+    
+    <Switch>
+      <Route exact path="/" component={HotDishes}></Route>
+      <Route exact path="/ColdDishesh" component={ColdDishes}></Route>
+      <Route path="/Soup" component={Soup}></Route>
+      <Route path="/Grill" component={Grill}></Route>
+      <Route path="/Appetizer" component={Appetizer}></Route>
+      <Route path="/Dessert" component={Dessert}></Route>
+    </Switch>
+      
     </div>
+    </Router>
+  
   );
 }
 
